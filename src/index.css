@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English+SC&family=Inter:wght@300;400;500;600&family=Petit+Formal+Script&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Crimson Pro", serif;
+  --font-display: "IM Fell English SC", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-script: "Petit Formal Script", cursive;
+  
+  --color-paper: #fdfaf5;
+  --color-paper-dark: #f2e8d5;
+  --color-ink: #2c1e1a;
+  --color-coffee: #4e342e;
+  --color-latte: #d7ccc8;
+  --color-espresso: #1b1311;
+  --color-sepia: #5d4037;
+  --color-sepia-light: #8d6e63;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-serif antialiased;
+    background-image: 
+      radial-gradient(circle at 10% 10%, rgba(139, 115, 85, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(139, 115, 85, 0.05) 0%, transparent 40%),
+      url("https://www.transparenttextures.com/patterns/cream-paper.png");
+  }
+
+  h1, h2, h3 {
+    @apply font-display text-coffee tracking-wide uppercase;
+  }
+}
+
+.coffee-stain {
+  @apply absolute pointer-events-none opacity-10;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #5d4037 0%, transparent 70%);
+  filter: blur(20px);
+}
+
+.manuscript-card {
+  @apply relative p-10 md:p-14 bg-white/60 backdrop-blur-md border border-latte;
+  box-shadow: 
+    20px 20px 60px #f0ede6,
+    -20px -20px 60px #ffffff;
+}
+
+.ink-button {
+  @apply bg-coffee text-white px-10 py-4 font-display text-sm tracking-[0.2em] uppercase transition-all hover:bg-espresso active:translate-y-px disabled:opacity-30;
+  border-radius: 2px;
+  box-shadow: 0 4px 14px 0 rgba(78, 52, 46, 0.39);
+}
+
+.vintage-input {
+  @apply w-full bg-transparent border-t border-b border-latte py-8 focus:outline-none focus:border-coffee/30 font-serif text-xl italic placeholder:text-coffee/20 placeholder:not-italic;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-coffee/20;
+}
+
+.metadata-label {
+  @apply font-sans font-semibold text-[10px] uppercase tracking-[0.2em] text-coffee/60;
+}
+
+.divider {
+  @apply h-px w-full bg-latte my-8;
+}
+
+.floral-divider {
+  @apply flex items-center justify-center gap-4 my-12 opacity-20;
+}
+
+.floral-line {
+  @apply h-px flex-1 bg-coffee;
+}
+
+.floral-icon {
+  @apply w-6 h-6 text-coffee;
+}
+
+.ornate-border {
+  @apply border-2 border-latte relative;
+  &::before, &::after {
+    content: '✿';
+    @apply absolute -top-3 text-latte text-lg bg-paper px-1;
+  }
+  &::before { @apply left-4; }
+  &::after { @apply right-4; }
+}
+
+.corner-flower {
+  @apply absolute w-12 h-12 text-coffee/10 pointer-events-none;
+}
+
+.corner-top-left { @apply top-4 left-4 rotate-0; }
+.corner-top-right { @apply top-4 right-4 rotate-90; }
+.corner-bottom-left { @apply bottom-4 left-4 -rotate-90; }
+.corner-bottom-right { @apply bottom-4 right-4 rotate-180; }
+
+
+
+
